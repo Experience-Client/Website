@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experience | Soon™</title>
+    <link rel="shortcut icon" href="favicon/black.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://client.justaiden.tech" />
+    <meta property="og:title" content="Experience | Soon™" />
+    <meta property="og:site_name" content="Experience" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="og:image"
+      content="https://cdn.discordapp.com/attachments/1002707512371453972/1109244144439804065/Yes._It_is_happening.png"
+    />
+    <meta name="theme-color" content="#cfcfcf" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        color: #303030;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: #cfcfcf;
+        }
+      }
+
+      img#wallpaper {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+      }
+
+      img#logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 30vw;
+        height: 30vw;
+        min-width: 200px;
+        min-height: 200px;
+        object-fit: contain;
+      }
+
+      h1 {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        user-select: none;
+        font-size: 5em;
+      }
+
+      @media screen and (max-width: 500px) {
+        h1 {
+          font-size: 4em;
+        }
+      }
+      
+    </style>
+  </head>
+  <body>
+        <!-- Add the Discord button -->
+    <a href="https://discord.com/invite/RsKbMRXvEc" target="_blank">
+      <img
+        src="discord_button.png"
+        alt="Join our Discord"
+        draggable="false"
+        style="position: absolute; top: 70%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 50px; object-fit: contain;"
+      />
+    </a>
+    <img id="wallpaper" alt="Experience' wallpaper" draggable="false" />
+    <img id="logo" alt="Experience' logo" draggable="false" />
+    <h1>Soon</h1>
+
+    <script>
+      function adaptToColorScheme(dark) {
+        const filename = dark ? 'black' : 'white';
+        const oppositeFilename = dark ? 'white' : 'black';
+
+        document
+          .querySelector('link[rel="shortcut icon"]')
+          .setAttribute('href', `favicon/${oppositeFilename}.svg`);
+
+        document
+          .querySelector('img#wallpaper')
+          .setAttribute('src', `wallpaper/${filename}.png`);
+
+        document
+          .querySelector('img#logo')
+          .setAttribute('src', `favicon/${oppositeFilename}.svg`);
+      }
+
+      const prefersDarkScheme = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      );
+      adaptToColorScheme(prefersDarkScheme.matches);
+      prefersDarkScheme.addEventListener('change', (event) =>
+        adaptToColorScheme(event.matches)
+      );
+    </script>
+  </body>
+</html>
